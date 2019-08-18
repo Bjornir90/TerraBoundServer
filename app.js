@@ -1,8 +1,8 @@
 const ws = require('ws');
 
-const wss = new ws.Server({port: 8080});
+const wss = new ws.Server({port: process.env.PORT || 8080});
 
-console.log("Server running on port 8080");
+console.log("Server running on port "+wss.options.port);
 
 wss.on('connection', function connection(ws, req){
     console.log('Websocket opened with : ' + req.connection.remoteAddress);
